@@ -463,36 +463,42 @@
 
 			ctx.save();
 
-			// Gentle pulsing glow
-			const pulse = 1 + Math.sin(t * 0.05) * 0.04;
-
+			// Position
 			ctx.translate(x, y);
+
+			// Correct mirror effect
 			ctx.scale(-1, 1);
 
+			// Same pulse style as the heart
+			const pulse = 1 + Math.sin(t * 0.12) * 0.08;
+			ctx.scale(pulse, pulse);
+
 			ctx.textAlign = "center";
-			ctx.textBaseline = "middle";
+			ctx.textBaseline = "top";
 
-			// Font
-			ctx.font = " 32px 'Segoe UI', Arial, sans-serif";
+			// Same font style
+			ctx.font = "32px 'Segoe UI', Arial, sans-serif";
 
-			// Outer glow
-			ctx.shadowColor = "#ff4f9a";
-			ctx.shadowBlur = 30;
+			// Pink outer glow — same as heart
+			ctx.shadowColor = "#ff2d75";
+			ctx.shadowBlur = 25;
 
-			ctx.fillStyle = "#ff4f9a";
-			ctx.fillText("Made for Trisha", 0, 0);
+			ctx.strokeStyle = "#ff4d88";
+			ctx.lineWidth = 2;
 
-			// Stronger inner glow
-			ctx.shadowColor = "#ff9bc5";
-			ctx.shadowBlur = 12;
+			// Outer glowing text
+			ctx.fillStyle = "#ff4d88";
+			ctx.fillText("Made for You", 0, 0);
 
+			// Bright inner glow
+			ctx.shadowBlur = 10;
 			ctx.fillStyle = "#ffffff";
-			ctx.fillText("Made for Trisha", 0, 0);
+			ctx.fillText("Made for You", 0, 0);
 
-			// Small highlight
-			ctx.shadowBlur = 4;
+			// Small pink highlight
+			ctx.shadowBlur = 5;
 			ctx.fillStyle = "#ffd6e8";
-			ctx.fillText("Made for Trisha", 0, 0);
+			ctx.fillText("Made for You", 0, 0);
 
 			ctx.restore();
 		}
