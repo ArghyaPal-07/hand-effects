@@ -467,32 +467,32 @@
 			const pulse = 1 + Math.sin(t * 0.05) * 0.04;
 
 			ctx.translate(x, y);
-			ctx.scale(pulse, pulse);
+			ctx.scale(-1, 1);
 
 			ctx.textAlign = "center";
 			ctx.textBaseline = "middle";
 
 			// Font
-			ctx.font = "bold 32px 'Segoe UI', Arial, sans-serif";
+			ctx.font = " 32px 'Segoe UI', Arial, sans-serif";
 
 			// Outer glow
 			ctx.shadowColor = "#ff4f9a";
 			ctx.shadowBlur = 30;
 
 			ctx.fillStyle = "#ff4f9a";
-			ctx.fillText("Made for You", 0, 0);
+			ctx.fillText("Made for Trisha", 0, 0);
 
 			// Stronger inner glow
 			ctx.shadowColor = "#ff9bc5";
 			ctx.shadowBlur = 12;
 
 			ctx.fillStyle = "#ffffff";
-			ctx.fillText("Made for You", 0, 0);
+			ctx.fillText("Made for Trisha", 0, 0);
 
 			// Small highlight
 			ctx.shadowBlur = 4;
 			ctx.fillStyle = "#ffd6e8";
-			ctx.fillText("Made for You", 0, 0);
+			ctx.fillText("Made for Trisha", 0, 0);
 
 			ctx.restore();
 		}
@@ -508,7 +508,7 @@
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			drawHUDBase();
 
-			drawMadeForYou(hudState.t);
+			
 
 			// Update and draw effects
 			updateEffects();
@@ -567,6 +567,8 @@
 				70,
 				hudState.t
 			);
+
+			drawMadeForYou(hudState.t);
 		}
 
 			
