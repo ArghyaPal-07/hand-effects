@@ -457,6 +457,46 @@
 			return smoothed;
 		}
 
+		function drawMadeForYou(t) {
+			const x = video.videoWidth / 2;
+			const y = video.videoHeight - 45;
+
+			ctx.save();
+
+			// Gentle pulsing glow
+			const pulse = 1 + Math.sin(t * 0.05) * 0.04;
+
+			ctx.translate(x, y);
+			ctx.scale(pulse, pulse);
+
+			ctx.textAlign = "center";
+			ctx.textBaseline = "middle";
+
+			// Font
+			ctx.font = "bold 32px 'Segoe UI', Arial, sans-serif";
+
+			// Outer glow
+			ctx.shadowColor = "#ff4f9a";
+			ctx.shadowBlur = 30;
+
+			ctx.fillStyle = "#ff4f9a";
+			ctx.fillText("Made for You", 0, 0);
+
+			// Stronger inner glow
+			ctx.shadowColor = "#ff9bc5";
+			ctx.shadowBlur = 12;
+
+			ctx.fillStyle = "#ffffff";
+			ctx.fillText("Made for You", 0, 0);
+
+			// Small highlight
+			ctx.shadowBlur = 4;
+			ctx.fillStyle = "#ffd6e8";
+			ctx.fillText("Made for You", 0, 0);
+
+			ctx.restore();
+		}
+
 		function loop(t) {
 			if (!handLandmarker) return;
 			hudState.t = t * 0.06; // slow time
@@ -468,6 +508,8 @@
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			drawHUDBase();
 
+			drawMadeForYou(hudState.t);
+
 			// Update and draw effects
 			updateEffects();
 			drawEffects();
@@ -477,55 +519,55 @@
     performance.now()
 );
 
-const hands = result.landmarks || [];
+	const hands = result.landmarks || [];
 
 
-// Smooth each detected hand
-const smoothedHands = [];
+	// Smooth each detected hand
+	const smoothedHands = [];
 
-for (let hi = 0; hi < hands.length; hi++) {
+	for (let hi = 0; hi < hands.length; hi++) {
 
-    const hand = smoothLandmarks(hands[hi], hi);
+		const hand = smoothLandmarks(hands[hi], hi);
 
-    smoothedHands.push(hand);
+		smoothedHands.push(hand);
 
-    drawSkeleton(hand);
-    drawPalmHUD(hand, hudState.t);
-    drawJointDots(hand, hudState.t);
+		drawSkeleton(hand);
+		drawPalmHUD(hand, hudState.t);
+		drawJointDots(hand, hudState.t);
 
-    // Fingertips
-    [4, 8, 12, 16, 20].forEach(i => {
+		// Fingertips
+		[4, 8, 12, 16, 20].forEach(i => {
 
-        const [x, y] = toPx([
-            hand[i].x,
-            hand[i].y
-        ]);
+			const [x, y] = toPx([
+				hand[i].x,
+				hand[i].y
+			]);
 
-        drawFingertipGizmo(
-            x,
-            y,
-            hudState.t
-        );
-    });
-}
+			drawFingertipGizmo(
+				x,
+				y,
+				hudState.t
+			);
+		});
+	}
 
 
-// -------------------------------
-// HEART GESTURE DETECTION
-// -------------------------------
+		// -------------------------------
+		// HEART GESTURE DETECTION
+		// -------------------------------
 
-if (isHeartGesture(smoothedHands)) {
+		if (isHeartGesture(smoothedHands)) {
 
-    const [heartX, heartY] =
-        getHeartCenter(smoothedHands);
+			const [heartX, heartY] =
+				getHeartCenter(smoothedHands);
 
-    drawHeart(
-        heartX,
-        heartY,
-        90,
-        hudState.t
-    );
-}
+			drawHeart(
+				heartX,
+				heartY,
+				70,
+				hudState.t
+			);
+		}
 
 			
 
