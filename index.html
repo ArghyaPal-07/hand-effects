@@ -21,7 +21,11 @@
 	</div>
 
 	<script type="module">
+		import { inject } from "https://cdn.jsdelivr.net/npm/@vercel/analytics@2.0.1/dist/index.mjs";
 		import { HandLandmarker, FilesetResolver } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/vision_bundle.mjs";
+
+		// Initialize Vercel Analytics
+		inject();
 
 		const video = document.getElementById("webcam");
 		const canvas = document.getElementById("overlay");
