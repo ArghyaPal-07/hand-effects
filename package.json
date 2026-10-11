@@ -1,0 +1,24 @@
+{
+  "name": "hand-effects",
+  "version": "1.0.0",
+  "description": "Hand tracking HUD with real-time effects using MediaPipe",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArghyaPal-07/hand-effects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArghyaPal-07/hand-effects/issues"
+  },
+  "homepage": "https://github.com/ArghyaPal-07/hand-effects#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
