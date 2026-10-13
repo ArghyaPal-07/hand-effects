@@ -18,7 +18,7 @@ This project is designed to be easy to extend and customize. Whether you are bui
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/hand-effects.git
+   https://github.com/ArghyaPal-07/hand-effects.git
    cd hand-effects
    ```
 2. Open the project in your preferred editor or runtime environment.
