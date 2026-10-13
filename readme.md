@@ -80,4 +80,4 @@ Contributions are welcome. If you want to improve the project:
 
 ## Contact
 
-For questions or suggestions, open an issue in the repository or contact the project maintainer.
+For questions or suggestions, open an issue in the repository.
